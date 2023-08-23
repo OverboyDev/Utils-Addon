@@ -1,0 +1,911 @@
+﻿{
+	"custom": {
+		"conditions": [],
+		"actions": [],
+		"expressions": []
+	},
+	"picking": {
+		"conditions": [
+			{
+				"id": "transfer-picking",
+				"scriptName": "TransferPicking",
+				"highlight": false,
+				"params": [
+					{
+						"id": "object1",
+						"type": "object"
+					},
+					{
+						"id": "object2",
+						"type": "object"
+					},
+					{
+						"id": "transferType",
+						"type": "combo",
+						"items": ["filterAll", "filterSOL"]
+					}
+				]
+			},
+			{
+				"id": "pick-parent",
+				"scriptName": "PickParent",
+				"highlight": false,
+				"params": [
+					{
+						"id": "object",
+						"type": "object"
+					},
+					{
+						"id": "parent",
+						"type": "object"
+					},
+					{
+						"id": "level",
+						"type": "number"
+					},
+					{
+						"id": "which",
+						"type": "combo",
+						"items": ["closest", "furthest", "from-here", "from-top"]
+					}
+				]
+			},
+			{
+				"id": "pick-children",
+				"scriptName": "PickChildren",
+				"highlight": false,
+				"params": [
+					{
+						"id": "object",
+						"type": "object"
+					},
+					{
+						"id": "child",
+						"type": "object"
+					},
+					{
+						"id": "level",
+						"type": "number"
+					},
+					{
+						"id": "which",
+						"type": "combo",
+						"items": ["closest", "furthest", "from-here", "from-bottom"]
+					}
+				]
+			}
+
+		],
+		"actions": [],
+		"expressions": []
+	},
+	"variables": {
+		"conditions": [],
+		"actions": [			
+		{
+			"id": "replace-event-var",
+			"isDeprecated": false,
+			"scriptName": "ReplaceEventVar",
+			"highlight": false,
+			"params": [
+				{
+					"id": "eventvar",
+					"type": "eventvar"
+				},
+				{
+					"id": "find",
+					"type": "string"
+				},
+				{
+					"id": "replace",
+					"type": "string"
+				}
+			]
+		}],
+		"expressions": []
+	},
+	"math": {
+		"conditions": [],
+		"actions": [],
+		"expressions": [
+			{
+				"id": "dt1",
+				"expressionName": "dt1",
+				"returnType": "number"
+			},
+			{
+				"id": "wrap",
+				"expressionName": "wrap",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "x",
+						"type": "number"
+					},
+					{
+						"id": "min",
+						"type": "number"
+					},
+					{
+						"id": "max",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "angle360",
+				"expressionName": "angle360",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "angle",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "toRadians",
+				"expressionName": "toRadians",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "angle",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "toDegrees",
+				"expressionName": "toDegrees",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "angle",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "snap",
+				"expressionName": "snap",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "x",
+						"type": "number"
+					},
+					{
+						"id": "step",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "remap",
+				"expressionName": "remap",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "x",
+						"type": "number"
+					},
+					{
+						"id": "inMin",
+						"type": "number"
+					},
+					{
+						"id": "inMax",
+						"type": "number"
+					},
+					{
+						"id": "outMin",
+						"type": "number"
+					},
+					{
+						"id": "outMax",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "remapClamped",
+				"expressionName": "remapClamped",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "x",
+						"type": "number"
+					},
+					{
+						"id": "inMin",
+						"type": "number"
+					},
+					{
+						"id": "inMax",
+						"type": "number"
+					},
+					{
+						"id": "outMin",
+						"type": "number"
+					},
+					{
+						"id": "outMax",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "offsetXAtAngle",
+				"expressionName": "offsetXAtAngle",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "angle",
+						"type": "number"
+					},
+					{
+						"id": "distance",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "offsetYAtAngle",
+				"expressionName": "offsetYAtAngle",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "angle",
+						"type": "number"
+					},
+					{
+						"id": "distance",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "lerpDt",
+				"expressionName": "lerpDt",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "a",
+						"type": "number"
+					},
+					{
+						"id": "b",
+						"type": "number"
+					},
+					{
+						"id": "x",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "anglelerpDt",
+				"expressionName": "anglelerpDt",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "a",
+						"type": "number"
+					},
+					{
+						"id": "b",
+						"type": "number"
+					},
+					{
+						"id": "x",
+						"type": "number"
+					}
+				]
+			}
+			
+		]
+	},
+	"token": {
+		"conditions": [
+			{
+				"id": "for-each-token",
+				"scriptName": "ForEachToken",
+				"highlight": false,
+				"isLooping": true,
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "has-token",
+				"scriptName": "HasToken",
+				"highlight": false,
+				"isInvertible" : true,
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "token",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"actions": [],
+		"expressions": [
+			{
+				"id": "token-current",
+				"expressionName": "tokenCurrent",
+				"returnType": "string"
+			},
+			{
+				"id": "token-loopindex",
+				"expressionName": "tokenLoopindex",
+				"returnType": "number"
+			},
+			{
+				"id": "token-at",
+				"expressionName": "tokenAt",
+				"returnType": "string",
+				"params": [
+				  {
+					"id": "text",
+					"type": "string"
+				  },
+				  {
+					"id": "index",
+					"type": "number"
+				  },
+				  {
+					"id": "separator",
+					"type": "string"
+				  }
+				]
+			},
+			{
+				"id": "token-count",
+				"expressionName": "tokenCount",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-first",
+				"expressionName": "tokenFirst",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-last",
+				"expressionName": "tokenLast",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-random",
+				"expressionName": "tokenRandom",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-push",
+				"expressionName": "tokenPush",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "token",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-remove-all",
+				"expressionName": "tokenRemoveAll",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "token",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-set-at",
+				"expressionName": "tokenSetAt",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "token",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					},
+					{
+						"id": "index",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "token-insert-at",
+				"expressionName": "tokenInsertAt",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "token",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					},
+					{
+						"id": "index",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "token-remove-at",
+				"expressionName": "tokenRemoveAt",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					},
+					{
+						"id": "index",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "token-sort-ascending",
+				"expressionName": "tokenSortAsc",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-sort-descending",
+				"expressionName": "tokenSortDes",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-shuffle",
+				"expressionName": "tokenShuffle",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "token-deduplicate-all",
+				"expressionName": "tokenDedup",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "string"
+					},
+					{
+						"id": "separator",
+						"type": "string"
+					}
+				]
+			}
+		]
+	},
+	"layers": {
+		"conditions": [
+		{
+		"id": "is-on-layer-parent",
+		"scriptName": "IsOnLayer_Parent",
+		"highlight": false,
+		"params": [
+			{
+				"id": "object",
+				"type": "object"
+			},
+			{
+				"id": "layer",
+				"type": "layer"
+			},
+			{
+				"id": "which",
+				"type": "combo",
+				"items": ["any", "own"]
+			},
+			{
+				"id": "self",
+				"type": "combo",
+				"items": ["yes", "no"]
+			}
+		]
+		},
+		{
+			"id": "is-on-layer-sublayer",
+			"scriptName": "IsOnLayer_Sublayer",
+			"highlight": false,
+			"params": [
+				{
+					"id": "object",
+					"type": "object"
+				},
+				{
+					"id": "layer",
+					"type": "layer"
+				},
+				{
+					"id": "which",
+					"type": "combo",
+					"items": ["any", "own"]
+				},
+				{
+					"id": "self",
+					"type": "combo",
+					"items": ["yes", "no"]
+				}
+			]
+		},
+		{
+			"id": "obj-is-on-layer-visible-interactible",
+			"scriptName": "Obj_OnLayer_VisibleInteractible",
+			"highlight": false,
+			"params": [
+				{
+					"id": "object",
+					"type": "object"
+				}
+			]
+		}],
+		"actions": [
+		{
+			"id": "layer-to-layer",
+			"isDeprecated": false,
+			"scriptName": "LayerToLayer",
+			"highlight": false,
+			"params": [
+				{
+					"id": "layer1",
+					"type": "layer"
+				},
+				{
+					"id": "layer2",
+					"type": "layer"
+				}
+			]
+		},
+		{
+			"id": "layer-toggle-visiblity",
+			"scriptName": "LayerToggleVisible",
+			"highlight": false,
+			"params": [
+				{
+					"id": "layer",
+					"type": "layer"
+				}
+			]
+		}],
+		"expressions": []
+	},
+	"rng": {
+		"conditions": [
+			{
+			  "id": "Chance",
+			  "scriptName": "Chance",
+			  "params": [
+					{
+						"id": "chance",
+						"type": "number",
+						"initialValue": 0
+					},
+					{
+						"id": "outof",
+						"type": "number",
+						"initialValue": 1
+					}
+			  ]
+			},
+			{
+				"id": "ChancePercent",
+				"scriptName": "ChancePercent",
+				"params": [
+				  {
+					"id": "chance",
+					"type": "number",
+					"initialValue": 0
+				  }
+				]
+			}
+		]
+		,
+		"actions": [],
+		"expressions": [
+			{
+				"id": "dice",
+				"expressionName": "dice",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "number",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "randomint",
+				"expressionName": "randomInt",
+				"returnType": "number",
+				"params": [
+				  {
+					"id": "range",
+					"type": "number",
+					"initialValue": 10
+				  }
+				],
+				"isVariadicParameters": true
+			},
+			{
+				"id": "aspercent",
+				"expressionName": "asPercent",
+				"returnType": "number",
+				"params": [
+					{
+						"id": "number",
+						"type": "number"
+					}
+				]
+			}
+		]
+	},
+	"color": {
+		"conditions": [
+		
+		],
+		"actions": [
+			{
+				"id": "set-color",
+				"scriptName": "SetColor",
+				"highlight": false,
+				"params": [
+					{
+						"id": "object",
+						"type": "object"
+					},
+					{
+						"id": "color",
+						"type": "any"
+					}
+				]
+			},
+			{
+				"id": "colortemplate-set",
+				"scriptName": "ColorTemplate_Set",
+				"highlight": false,
+				"params": [
+					{
+						"id": "string",
+						"type": "string"
+					},
+					{
+						"id": "color",
+						"type": "any"
+					}
+				]
+			},
+			{
+				"id": "colortemplate-remove",
+				"scriptName": "ColorTemplate_Remove",
+				"highlight": false,
+				"params": [
+					{
+						"id": "string",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"expressions": [
+			{
+				"id": "colorToValue",
+				"expressionName": "colorToValue",
+				"highlight": false,
+				"returnType": "number",
+				"params": [
+					{
+						"id": "color",
+						"type": "any"
+					}
+				]
+			}
+		]
+	},
+	"text": {
+		"conditions": [],
+		"actions": [],
+		"expressions": [
+			{
+				"id": "o",
+				"expressionName": "o",
+				"highlight": false,
+				"returnType": "any",
+				"isVariadicParameters": true,
+				"params": [{ "id": "key0", "type": "any", "initialValue": "\"\"" }]
+			},
+			{
+				"id": "BBCodeBold",
+				"expressionName": "BBCodeBold",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "any"
+					}
+				]
+			},
+			{
+				"id": "BBCodeItalic",
+				"expressionName": "BBCodeItalic",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "any"
+					}
+				]
+			},
+			{
+				"id": "BBCodeUnderline",
+				"isVariadicParameters": true,
+				"expressionName": "BBCodeUnderline",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "any"
+					},
+					{
+						"id": "thickness",
+						"type": "number"
+					}
+				]
+			},
+			{
+				"id": "BBCodeTag",
+				"expressionName": "BBCodeTag",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "any"
+					},
+					{
+						"id": "tag",
+						"type": "any"
+					}
+				]
+			},
+			{
+				"id": "BBCodeColor",
+				"expressionName": "BBCodeColor",
+				"returnType": "string",
+				"params": [
+					{
+						"id": "text",
+						"type": "any"
+					},
+					{
+						"id": "color",
+						"type": "any"
+					}
+				]
+			}
+		]
+	}
+	
+}

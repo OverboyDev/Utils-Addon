@@ -1,0 +1,12 @@
+node_modules/
+
+/.vscode/*
+
+*.c3addon
+*.c3p
+*.prettierrc
+*.eslintrc.json
+*.sh
+*.bat
+
+

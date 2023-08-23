@@ -1,0 +1,886 @@
+﻿{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for Overboy Utilities.",
+	"text": {
+		"plugins": {
+			"overboy_utils": {
+				"name": "Utils",
+				"description": "Adds a bunch of useful Actions, Conditions and Expressions for C3. Made by Overboy",
+				"help-url": "https://overboy.itch.io/construct-3-utils",
+				"properties": {
+				},
+				"aceCategories": {
+					"custom": "Custom",
+                    "math": "Math",
+                    "token": "Tokens",
+                    "layers": "Layers",
+                    "picking": "Picking",
+                    "variables": "Variables",
+                    "rng": "RNG",
+                    "color": "Color",
+                    "text": "Text"
+				},
+				"conditions": {
+					"transfer-picking":{
+                        "list-name": "Transfer picking",
+                        "display-text": "Transfer {0} Pick to {1} ({2})",
+                        "description": "Transfer picking to another object.",
+                        "params": {
+                            "object1": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            },
+                            "object2": {
+                                "name": "Target",
+                                "desc": "The object type or family to transfer picking to."
+                            },
+                            "transferType": {
+                                "name": "Pick type",
+                                "desc": "Pick type",
+                                "items": {
+                                    "filterAll": "Filter All",
+                                    "filterSOL": "Filter current SOL"
+                                }
+                            }
+                        }
+                    },
+                    "is-on-layer-parent":{
+						"list-name": "Is on parent layer of",
+                        "display-text": "{0} | Is on {2} parent layer of {1} ({3})",
+                        "description": "Pick the instances of an object type on specific layer(s)",
+                        "params": {
+							"object": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            },
+                            "layer": {
+                                "name": "Layer",
+                                "desc": "Layer name or number to test if the object is on its parents layer."
+                            },
+							"which": {
+                                "name": "Which",
+                                "desc": "Whether to test if the object is on layer's OWN or ALL sublayers",
+                                "items": {
+                                    "any": "Any",
+                                    "own": "Own"
+                                }
+                            },
+							"self": {
+								"name": "Self",
+								"desc": "Whether to test if the object is on the layer itself",
+								"items": {
+                                    "yes": "Self included",
+                                    "no": "Self excluded"
+                                }
+							}
+
+                        }
+					},
+					"is-on-layer-sublayer":{
+						"list-name": "Is on sublayer of",
+                        "display-text": "{0} | Is on {2} sublayer of {1} ({3})",
+                        "description": "Pick the instances of an object type on specific layer(s)",
+                        "params": {
+							"object": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            },
+                            "layer": {
+                                "name": "Layer",
+                                "desc": "Layer name or number to test if the object is on its sublayer."
+                            },
+							"which": {
+                                "name": "Which",
+                                "desc": "Whether to test if the object is on layer's OWN or ALL sublayers",
+                                "items": {
+                                    "any": "Any",
+                                    "own": "Own"
+                                }
+                            },
+							"self": {
+								"name": "Self",
+								"desc": "Whether to test if the object is on the layer itself",
+								"items": {
+                                    "yes": "Self included",
+                                    "no": "Self excluded"
+                                }
+							}
+
+                        }
+					},
+                    "obj-is-on-layer-visible-interactible":{
+						"list-name": "Is on visible & interactive layer",
+                        "display-text": "{0} | Is on visible and interactive layer",
+                        "description": "Is on visible and interactive layer",
+                        "params": {
+							"object": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            }
+                        }
+					},
+					"pick-parent": {
+                        "list-name": "Pick parent",
+                        "display-text": "{0} | Pick parent {1} [Lvl [i]{2}[/i] [i]{3}[/i]]",
+                        "description": "Pick the parents of the picked instances, according to their hierarchy.",
+                        "params": {
+							"object": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            },
+                            "parent": {
+                                "name": "Parent",
+                                "desc": "The object type or family of the parent to pick."
+                            },
+							"level": {
+								"name": "Level",
+								"desc": "The number of levels to pick parents from. 1 picks the parent of the picked instances, 1 picks the parents of the picked instances and their parents, and so on."
+							},
+                            "which": {
+                                "name": "Which",
+                                "desc": "Closest/Furthest = level containing at least one Object2",
+                                "items": {
+                                    "closest": "Closest",
+                                    "furthest": "Furthest",
+                                    "from-here": "From here",
+									"from-top": "From top"
+                                }
+                            }
+                        }
+                    },
+                    "pick-children": {
+                        "list-name": "Pick children",
+                        "display-text": "{0} | Pick children {1} [Lvl [i]{2}[/i] [i]{3}[/i]]",
+                        "description": "Pick all the children of the picked instances, according to their hierarchy.",
+                        "params": {
+							"object": {
+                                "name": "Object",
+                                "desc": "The object type or family of the parent to pick."
+                            },
+                            "child": {
+                                "name": "Child",
+                                "desc": "The object type or family of the children to pick."
+                            },
+                            "level": {
+								"name": "Level",
+								"desc": "The number of levels to pick children from. 1 picks the children of the picked instances, 1 picks the children of the picked instances and their children, and so on."
+							},
+                            "which": {
+                                "name": "Which",
+                                "desc": "Whether to pick the object's own parent, all parents to the top, or the parent at the top of the hierarchy.",
+                                "items": {
+                                    "closest": "Closest",
+                                    "furthest": "Furthest (not implemented)",
+                                    "from-here": "From here",
+									"from-bottom": "From bottom (not implemented)"
+                                }
+                            }
+                        }
+                    },
+                    "Chance": {
+                        "list-name": "Chance",
+                        "display-text": "Chance : [i]{0}[/i] ouf of [i]{1}[/i]",
+                        "description": "Returns true with a given chance",
+                        "params": {
+                          "chance": {
+                            "name": "Chance",
+                            "desc": "The chance of the condition being true."
+                          },
+                          "outof": {
+                            "name": "Out of",
+                            "desc": "The total number of chances."
+                          }
+                        }
+                    },
+                    "ChancePercent": {
+                        "list-name": "Chance (%)",
+                        "display-text": "Chance : [i]{0}[/i] %",
+                        "description": "Returns true with a given chance (%)",
+                        "params": {
+                          "chance": {
+                            "name": "Chance",
+                            "desc": "The chance of the condition being true in percent. 0 = 0% (False), 100 = 100% (True)"
+                          }
+                        }
+                    },
+                    "for-each-token": {
+                        "list-name": "For each token",
+                        "display-text": "For each token in [b]{0}[/b] (separator: [b]{1}[/b])",
+                        "description": "Repeat actions once for each token of an string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to loop through."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        }
+                    },
+                    "has-token": {
+                        "list-name": "Has token",
+                        "display-text": "Has token [b]{1}[/b] in [b]{0}[/b] (separator: [b]{2}[/b])",
+                        "description": "Check if a string contains a token.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to check."
+                            },
+                            "token": {
+                                "name": "Token",
+                                "desc": "Token to check for."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        }
+                    }
+                    
+				},
+				"actions": {
+					"layer-to-layer": {
+						"list-name": "Move objects from layer1 to layer2",
+						"display-text": "Move objects from layer [b]{0}[/b] to layer [b]{1}[/b]",
+						"description": "Move layer1 objects to layer2",
+                        "params": {
+							"layer1": {
+                                "name": "Layer (From)",
+                                "desc": "Layer Source"
+                            },
+                            "layer2": {
+                                "name": "Layer (To)",
+                                "desc": "Layer Destination"
+                            }
+                        }
+					},
+                    "layer-toggle-visiblity": {
+						"list-name": "Layer Toggle Visibility",
+						"display-text": "Toggle Layer [b]{0}[/b] Visible",
+						"description": "Layer Toggle Visibility",
+                        "params": {
+							"layer": {
+                                "name": "Layer",
+                                "desc": "Layer to toggle visibility"
+                            }
+                        }
+					},
+                    "replace-event-var": {
+						"list-name": "Replace Event Variable",
+                        "display-text": "[b]{0}[/b]: Replace [b]{1}[/b] by [b]{2}[/b]",
+                        "description": "Replace Event Variable",
+                        "params": {
+							"eventvar": {
+                                "name": "Variable",
+                                "desc": "Variable"
+                            },
+                            "find": {
+                                "name": "Find",
+                                "desc": "Find"
+                            },
+                            "replace": {
+                                "name": "Replace",
+                                "desc": "Replace"
+                            }
+                    
+                        }
+					},
+                    "set-color": {
+                        "list-name": "Set object color",
+                        "display-text": "{0} | Set color to [i]{1}[/i]",
+                        "description": "Set the color to apply to the object.",
+                        "params": {
+                            "object": {
+                                "name": "Object",
+                                "desc": "The object type or family"
+                            },
+                            "color": {
+                                "name": "Color",
+                                "desc": "Choose the color to apply using either Hex, a Color Template Name, or a color expression like rgbEx(100, 0, 0)."
+                            }
+                        }
+                    },
+                    "colortemplate-set": {
+                        "list-name": "Set color template",
+                        "display-text": "Set color template [i]{0}[/i] to [i]{1}[/i]",
+                        "description": "Set a color template",
+                        "params": {
+                            "string": {
+                                "name": "Color Name",
+                                "desc": "The color template name"
+                            },
+                            "color": {
+                                "name": "Color",
+                                "desc": "The color set to this template name, either as Hex, an other Color Template Name (it will copy its value), or a color expression like rgbEx(100, 0, 0)."
+                            }
+                        }
+                    },
+                    "colortemplate-remove": {
+                        "list-name": "Remove color template",
+                        "display-text": "Remove color template [i]{0}[/i]",
+                        "description": "Remove a color template",
+                        "params": {
+                            "string": {
+                                "name": "Color Name",
+                                "desc": "The object type or family"
+                            }
+                        }
+                    }
+				},
+				"expressions": {        
+                    "dt1": {
+                        "description": "Delta-time in seconds, but not affected by timescale.",
+                        "translated-name": "dt1"
+                    },
+                    "wrap": {
+                        "description": "Wrap a value x between min and max.",
+                        "params": {
+                            "x": {
+                                "name": "x",
+                                "desc": "Value to wrap."
+                            },
+                            "min": {
+                                "name": "min",
+                                "desc": "Minimum value."
+                            },
+                            "max": {
+                                "name": "max",
+                                "desc": "Maximum value."
+                            }
+                        },
+                        "translated-name": "wrap"
+                    },
+                    "angle360": {
+                        "description": "Convert an angle in degrees to the range [0, 360].",
+                        "params": {
+                            "angle": {
+                                "name": "angle",
+                                "desc": "Input angle."
+                            }
+                        },
+                        "translated-name": "angle360"
+                    },
+                    "toRadians": {
+                        "description": "Convert degrees to radians.",
+                        "params": {
+                            "angle": {
+                                "name": "Angle (Degrees)",
+                                "desc": "Angle in degrees."
+                            }
+                        },
+                        "translated-name": "toRadians"
+                    },
+                    "toDegrees": {
+                        "description": "Convert radians to degrees.",
+                        "params": {
+                            "angle": {
+                                "name": "Angle (Radians)",
+                                "desc": "Angle in radians."
+                            }
+                        },
+                        "translated-name": "toDegrees"
+                    },
+                    "snap": {
+                        "description": "Snap a value x to the nearest multiple of step.",
+                        "params": {
+                            "x": {
+                                "name": "x",
+                                "desc": "Value to snap."
+                            },
+                            "step": {
+                                "name": "step",
+                                "desc": "Step size."
+                            }
+                        },
+                        "translated-name": "snap"
+                    },
+                    "remap": {
+                        "description": "Remap a value from a source range to a target range.",
+                        "params": {
+                            "x": {
+                                "name": "Value",
+                                "desc": "Value to remap."
+                            },
+                            "inMin": {
+                                "name": "Source Min",
+                                "desc": "Input range minimum."
+                            },
+                            "inMax": {
+                                "name": "Source Max",
+                                "desc": "Input range maximum."
+                            },
+                            "outMin": {
+                                "name": "Target Min",
+                                "desc": "Output range minimum."
+                            },
+                            "outMax": {
+                                "name": "Target Max",
+                                "desc": "Output range maximum."
+                            }
+                        },
+                        "translated-name": "remap"
+                    },
+                    "remapClamped": {
+                        "description": "Remap a value from a source range to the clamped target range [TargetMin, TargetMax].",
+                        "params": {
+                            "x": {
+                                "name": "Value",
+                                "desc": "Value to remap."
+                            },
+                            "inMin": {
+                                "name": "Source Min",
+                                "desc": "Input range minimum."
+                            },
+                            "inMax": {
+                                "name": "Source Max",
+                                "desc": "Input range maximum."
+                            },
+                            "outMin": {
+                                "name": "Target Min",
+                                "desc": "Output range minimum."
+                            },
+                            "outMax": {
+                                "name": "Target Max",
+                                "desc": "Output range maximum."
+                            }
+                        },
+                        "translated-name": "remapClamped"
+                    },
+                    "offsetXAtAngle": {
+                        "description": "Calculate the X offset at a given angle and distance.",
+                        "params": {
+                            "angle": {
+                                "name": "Angle",
+                                "desc": "Angle in degrees."
+                            },
+                            "distance": {
+                                "name": "distance",
+                                "desc": "Distance from the origin."
+                            }
+                        },
+                        "translated-name": "offsetXAtAngle"
+                    },
+                    "offsetYAtAngle": {
+                        "description": "Calculate the Y offset at a given angle and distance.",
+                        "params": {
+                            "angle": {
+                                "name": "angle",
+                                "desc": "Angle in degrees."
+                            },
+                            "distance": {
+                                "name": "distance",
+                                "desc": "Distance from the origin."
+                            }
+                        },
+                        "translated-name": "offsetYAtAngle"
+                    },
+                    "lerpDt": {
+                        "description": "Linearly interpolate a to b by x. (framerate independant)",
+                        "params": {
+                            "a": {
+                                "name": "a",
+                                "desc": "First number."
+                            },
+                            "b": {
+                                "name": "b",
+                                "desc": "Second number."
+                            },
+                            "x": {
+                                "name": "x",
+                                "desc": "Interpolation factor."
+                            }
+                        },
+                        "translated-name": "lerpDt"
+                    },
+                    "anglelerpDt": {
+                        "description": "Linearly interpolate angles a to b (in degrees) by factor x. (framerate independant)",
+                        "params": {
+                            "a": {
+                                "name": "a",
+                                "desc": "First angle in degrees."
+                            },
+                            "b": {
+                                "name": "b",
+                                "desc": "Second angle in degrees."
+                            },
+                            "x": {
+                                "name": "x",
+                                "desc": "Interpolation factor."
+                            }
+                        },
+                        "translated-name": "anglelerpDt"
+                    },
+
+                    "logerp": {
+                        "description": "Logarithmic interpolation from a to b by x. (framerate independant)",
+                        "params": {
+                            "a": {
+                                "name": "a",
+                                "desc": "First number."
+                            },
+                            "b": {
+                                "name": "b",
+                                "desc": "Second number."
+                            },
+                            "x": {
+                                "name": "x",
+                                "desc": "Interpolation factor."
+                            }
+                        },
+                        "translated-name": "lerp"
+                    },
+
+                    "token-current": {
+                        "description": "Return the current token in a 'for each token' loop.",
+                        "params": {},
+                        "translated-name": "tokenCurrent"
+                    },
+                    "token-loopindex": {
+                        "description": "Return the loopindex of the current 'for each token' loop.",
+                        "params": {},
+                        "translated-name": "tokenLoopindex"
+                    },
+
+                    "token-at": {
+                        "description": "Return the Nth token from a string. (negative indices count from the end, example: -1 is the last token)",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to get a token from."
+                            },
+                            "index": {
+                                "name": "Index",
+                                "desc": "0-based index of the token to get. (negative indices count from the end, example: -1 is the last token)"
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenAt"
+                    },
+                    "token-count": {
+                        "description": "Return the number of tokens in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to count tokens in."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenCount"
+                    },
+                    "token-first":{
+                        "description": "Return the first token from a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to get the first token from."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenFirst"
+                    },
+                    "token-last":{
+                        "description": "Return the last token from a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to get the last token from."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenLast"
+                    },
+                    "token-random":{
+                        "description": "Return a random token from a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to get a random token from."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenRandom"
+                    },
+                    "token-push":{
+                        "description": "Push token at the end of a string with the separator. (Returns Text + Seperator + Token)",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to add the token to."
+                            },
+                            "token": {
+                                "name": "Token",
+                                "desc": "Token you want to push at the end of Text"
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenPush"
+                    },
+                    "token-remove-all":{
+                        "description": "Remove all occurences of the token from a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to remove the token from."
+                            },
+                            "token": {
+                                "name": "Token",
+                                "desc": "Token you want to remove from Text"
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenRemoveAll"
+                    },
+                    "token-set-at":{
+                        "description": "Set a token at a specific index in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to insert the token into."
+                            },
+                            "token": {
+                                "name": "Token",
+                                "desc": "Token you want to set at index (replacing the previous token)"
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            },
+                            "index": {
+                                "name": "Index",
+                                "desc": "0-based index of the token to set. (negative indices count from the end, example: -1 is the last token)"
+                            }
+                        },
+                        "translated-name": "tokenSetAt"
+                    },
+                    "token-insert-at":{
+                        "description": "Insert a token at a specific index in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to insert the token into."
+                            },
+                            "token": {
+                                "name": "Token",
+                                "desc": "Token you want to insert into Text"
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            },
+                            "index": {
+                                "name": "Index",
+                                "desc": "0-based index of the token to insert. (negative indices count from the end, example: -1 is the last token)"
+                            }
+                        },
+                        "translated-name": "tokenInsertAt"
+                    },
+                    "token-remove-at":{
+                        "description": "Remove a token at a specific index in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to insert the token into."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            },
+                            "index": {
+                                "name": "Index",
+                                "desc": "0-based index of the token to insert. (negative indices count from the end, example: -1 is the last token)"
+                            }
+                        },
+                        "translated-name": "tokenRemoveAt"
+                    },
+                    "token-sort-ascending":{
+                        "description": "Sort tokens in a string (ascending).",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to sort the tokens of."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenSortAsc"
+                    },
+                    "token-sort-descending":{
+                        "description": "Sort tokens in a string (descending).",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to sort the tokens of."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenSortDes"
+                    },
+                    "token-shuffle":{
+                        "description": "Shuffle tokens in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to shuffle the tokens of."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenShuffle"
+                    },
+                    "token-deduplicate-all":{
+                        "description": "Deduplicate all tokens in a string.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to deduplicate the tokens of."
+                            },
+                            "separator": {
+                                "name": "Separator",
+                                "desc": "Character or string to separate tokens."
+                            }
+                        },
+                        "translated-name": "tokenDedup"
+                    },
+                    "dice":{
+                        "description": "Returns an integer number between 1 and the number of faces (included)",
+                        "params": {
+                            "number": {
+                                "name": "Sides",
+                                "desc": "Number of sides of the dice. (Must be superior than 0 or it will return 0)"
+                            }
+                        },
+                        "translated-name": "dice"
+                    },
+                    "randomint": {
+                        "description": "Generate a random Integer number. Pass two numbers to generate within a range.",
+                        "params": {
+                            "range": {
+                                "name": "Range",
+                                "desc": "Range of random Integer numbers to generate, from 0 to one less than this value."
+                            }
+                        },
+                        "translated-name": "randomInt"
+                    },
+                    "aspercent": {
+                        "description": "Convert a number to a percentage.",
+                        "params": {
+                            "number": {
+                                "name": "Number",
+                                "desc": "Number to convert to a percentage."
+                            }
+                        },
+                        "translated-name": "asPercent"
+                    },
+                    "colorToValue": {
+                        "description": "Convert a color Template Name or a color HEX Value to a C3 color value.",
+                        "params": {
+                            "color": {
+                                "name": "Color",
+                                "desc": "Color Template Name or Color Hex Value to convert to C3 Color Value."
+                            }
+                        },
+                        "translated-name": "colorToValue"
+                    },
+                    "o": {
+						"description": "Turn arguments to path, each parameter is a key.",
+						"translated-name": "o",
+						"params": {
+							"key0": { "name": "Key", "desc": "The key of the hash to get." }
+						}
+					},
+                    "BBCodeBold": {
+                        "description": "Returns the text formatted in bold using BBCode.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to put in bold."
+                            }
+                        },
+                        "translated-name": "BBCodeBold"
+                    },
+                    "BBCodeItalic": {
+                        "description": "Returns the text formatted in italic using BBCode.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to put in italic."
+                            }
+                        },
+                        "translated-name": "BBCodeItalic"
+                    },
+                    "BBCodeUnderline": {
+                        "description": "Returns the text formatted with an underline using BBCode. (optional : set thickness with 2nd parameter)",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to underline."
+                            },
+                            "thickness": {
+                                "name": "Thickness",
+                                "desc": "Thickness for the underline (optional)"
+                            }
+                        },
+                        "translated-name": "BBCodeUnderline"
+                    },
+                    "BBCodeTag":{
+                        "description": "Returns the text formatted with a custom tag using BBCode.",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to format."
+                            },
+                            "tag": {
+                                "name": "Tag",
+                                "desc": "Tag to use."
+                            }
+                        },
+                        "translated-name": "BBCodeTag"
+                    },
+                    "BBCodeColor":{
+                        "description": "Returns the text formatted with a custom color using BBCode. (The color can be a color template name, a color hex value, or a color expression like rgbEx(100, 0, 0))",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text to format."
+                            },
+                            "color": {
+                                "name": "Color",
+                                "desc": "Color to use. (The color can be a color template name, a color hex value, or a color expression like rgbEx(100, 0, 0))"
+                            }
+                        },
+                        "translated-name": "BBCodeColor"
+                    }
+				}
+			}
+		}
+	}
+}
