@@ -73,14 +73,19 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 
 	//vanilla token
 
-	tokenAt(text, index, sep) {
+	tokenAt(text, sep, index) {
 		if (typeof text !== "string" || typeof sep !== "string") return ""
+
 		let arr = text.split(sep)
 		const absIndex = Math.floor(Math.abs(index))
 		const sign = Math.sign(index)
-		if (absIndex === 0 || absIndex >= arr.length) return ""
-		if (sign === 1) return arr[index]
-		else return arr[arr.length + index]
+		if (absIndex >= arr.length) return ""
+		//console.log("index", index)
+		if (sign !== -1) {
+			return arr[index]
+		} else {
+			return arr[arr.length + index]
+		}
 	},
 
 	tokenCount(text, sep) {
@@ -100,13 +105,13 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 		return arr[index]
 	},
 
-	tokenPush(text, token, sep) {
+	tokenPush(text, sep, token) {
 		if (typeof text !== "string" || typeof token !== "string" || typeof sep !== "string") return text
 		if (text === "") return token
 		return text + sep + token
 	},
 
-	tokenRemoveAll(text, token, sep) {
+	tokenRemoveAll(text, sep, token) {
 		if (typeof text !== "string" || typeof token !== "string" || typeof sep !== "string") return text
 
 		let arr = text.split(sep)
@@ -129,7 +134,7 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 
 	//toDo
 	/*
-	tokenInsert(text, token, sep, index) {
+	tokenInsert(text, sep, token, index) {
 
 		if (typeof text !== "string" || typeof index !== "number" || typeof token !== "string" || typeof sep !== "string") {
 			return text
@@ -140,7 +145,7 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 		return arr.join(sep)
 	},*/
 
-	tokenSetAt(text, token, sep, index) {
+	tokenSetAt(text, sep, token, index) {
 		if (typeof text !== "string" || typeof index !== "number" || typeof token !== "string" || typeof sep !== "string") {
 			return text
 		}
@@ -156,13 +161,13 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 		return arr.join(sep)
 	},
 
-	tokenInsertAt(text, token, sep, index) {
+	tokenInsertAt(text, sep, token, index) {
 		if (typeof text !== "string" || typeof index !== "number" || typeof token !== "string" || typeof sep !== "string") {
 			return text
 		}
 
 		const arr = text.split(sep)
-		let actualIndex = index < 0 ? arr.length + index : index
+		let actualIndex = index < 0 ? arr.length + index + 1 : index
 
 		if (actualIndex < 0) {
 			return text
@@ -176,8 +181,8 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 		return arr.join(sep)
 	},
 
-	tokenRemoveAt(text, token, sep, index) {
-		if (typeof text !== "string" || typeof index !== "number" || typeof token !== "string" || typeof sep !== "string") {
+	tokenRemoveAt(text, sep, index) {
+		if (typeof text !== "string" || typeof index !== "number" || typeof sep !== "string") {
 			return text
 		}
 
@@ -235,7 +240,7 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 		return arr.join(sep)
 	},
 
-	tokenDeduplicateAll(text, sep) {
+	tokenDedup(text, sep) {
 		if (typeof text !== "string" || typeof sep !== "string") {
 			return text
 		}

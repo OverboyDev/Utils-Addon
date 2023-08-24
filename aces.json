@@ -366,12 +366,12 @@
 					"type": "string"
 				  },
 				  {
-					"id": "index",
-					"type": "number"
-				  },
-				  {
 					"id": "separator",
 					"type": "string"
+				  },
+				  {
+					"id": "index",
+					"type": "number"
 				  }
 				]
 			},
@@ -443,13 +443,14 @@
 					{
 						"id": "text",
 						"type": "string"
-					},
-					{
-						"id": "token",
-						"type": "string"
+						
 					},
 					{
 						"id": "separator",
+						"type": "string"
+					},
+					{
+						"id": "token",
 						"type": "string"
 					}
 				]
@@ -464,11 +465,11 @@
 						"type": "string"
 					},
 					{
-						"id": "token",
+						"id": "separator",
 						"type": "string"
 					},
 					{
-						"id": "separator",
+						"id": "token",
 						"type": "string"
 					}
 				]
@@ -483,11 +484,11 @@
 						"type": "string"
 					},
 					{
-						"id": "token",
+						"id": "separator",
 						"type": "string"
 					},
 					{
-						"id": "separator",
+						"id": "token",
 						"type": "string"
 					},
 					{
@@ -506,11 +507,11 @@
 						"type": "string"
 					},
 					{
-						"id": "token",
+						"id": "separator",
 						"type": "string"
 					},
 					{
-						"id": "separator",
+						"id": "token",
 						"type": "string"
 					},
 					{

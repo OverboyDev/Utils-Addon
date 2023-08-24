@@ -549,14 +549,15 @@
                                 "name": "Text",
                                 "desc": "Text to get a token from."
                             },
-                            "index": {
-                                "name": "Index",
-                                "desc": "0-based index of the token to get. (negative indices count from the end, example: -1 is the last token)"
-                            },
                             "separator": {
                                 "name": "Separator",
                                 "desc": "Character or string to separate tokens."
+                            },
+                            "index": {
+                                "name": "Index",
+                                "desc": "0-based index of the token to get. (negative indices count from the end, example: -1 is the last token)"
                             }
+                
                         },
                         "translated-name": "tokenAt"
                     },
@@ -657,7 +658,7 @@
                         "params": {
                             "text": {
                                 "name": "Text",
-                                "desc": "Text to insert the token into."
+                                "desc": "Text."
                             },
                             "token": {
                                 "name": "Token",
@@ -701,7 +702,7 @@
                         "params": {
                             "text": {
                                 "name": "Text",
-                                "desc": "Text to insert the token into."
+                                "desc": "Text to remove the token from."
                             },
                             "separator": {
                                 "name": "Separator",
