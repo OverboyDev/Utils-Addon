@@ -7,6 +7,8 @@ A free plugin for [Construct 3](https://www.construct.net/a/55719?t=construct3fr
 
 It adds utilitary features to many aspects in the engine, such as Texts, Layers, Colors, Tokens, BBCode, RNG, Picking, Hierarchy, Maths and many more.
 
-[__DOWNLOAD__](https://overboy.itch.io/construct-3-utils)  
-[__DOCUMENTATION__](https://overboy.itch.io/construct-3-utils)  
-[__CROWDFUNDING__](https://opencollective.com/utils)  
+[__Download__](https://overboy.itch.io/construct-3-utils)  
+[__Documentation__](https://overboy.itch.io/construct-3-utils)  
+[__Crowdfunding__](https://opencollective.com/utils)  
+
+*The development of this tool is financed by our generous sponsors and backers.*
