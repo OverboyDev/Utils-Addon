@@ -508,19 +508,20 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 	colorToRGBValue(color) {
 		//C3colorvalue
 		if (typeof color === "number") {
-			console.log("colorToRPBValue is number")
+			//console.log("colorToRPBValue is number")
 			return color
 		}
 		//hex
 		if ((typeof color === "string") & color.startsWith("#")) {
-			console.log("colorToRPBValue is hex")
+			//console.log("colorToRPBValue is hex")
 			return this.hex2number(color)
 		}
 		//colorname
 		//if ((typeof color === "string") & isNaN(parseInt(color.charAt(0)))) {
 		if (typeof color === "string") {
-			console.log("colorToRPBValue is template")
+			//console.log("colorToRPBValue is template")
 			color = this.colorNameToHex(color)
+			//console.log("colorNameToHex =", color)
 			return this.hex2number(color)
 		}
 		return undefined
@@ -532,11 +533,11 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 			return this.number2hex(color)
 		}
 		//hex
-		if ((typeof color === "string") & color.startsWith("#")) {
+		if (typeof color === "string" && color.startsWith("#")) {
 			return color
 		}
 		//colorname
-		if ((typeof color === "string") & isNaN(parseInt(color.charAt(0)))) {
+		if (typeof color === "string" && isNaN(parseInt(color.charAt(0)))) {
 			return this.colorNameToHex(color)
 		}
 		//C3colorvalue
@@ -551,8 +552,10 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 		return [Math.floor(r * 255.99), Math.floor(g * 255.99), Math.floor(b * 255.99)]
 	}
 
+	//old doesn't work
 	rgb2hex(arr) {
-		return "#" + ((1 << 24) + (arr[0] << 16) + (arr[1] << 8) + arr[2]).toString(16).slice(1)
+		const arr256 = arr.map((v) => Math.floor(v * 255.99))
+		return "#" + ((1 << 24) + (arr256[0] << 16) + (arr256[1] << 8) + arr256[2]).toString(16).slice(1)
 	}
 
 	hex2float(hex) {
@@ -561,14 +564,19 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 	}
 
 	hex2number(hex) {
-		const components = hex.match(/[a-fA-F0-9]{2}/g) // Match pairs of hexadecimal characters
-		if (components && components.length === 3) {
-			const red = parseInt(components[0], 16)
-			const green = parseInt(components[1], 16)
-			const blue = parseInt(components[2], 16)
+		if (typeof hex === "string" && hex.startsWith("#")) {
+			const components = hex.match(/[a-fA-F0-9]{2}/g) // Match pairs of hexadecimal characters
+			if (components && components.length === 3) {
+				const red = parseInt(components[0], 16)
+				const green = parseInt(components[1], 16)
+				const blue = parseInt(components[2], 16)
 
-			const packedColor = red | (green << 8) | (blue << 16)
-			return packedColor
+				const packedColor = red | (green << 8) | (blue << 16)
+				return packedColor
+			}
+		} else {
+			console.log("hex2number : not a hex string", hex)
+			return 0
 		}
 	}
 
@@ -609,7 +617,9 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 	}
 
 	number2hex(number) {
-		return this.rgb2hex(this.number2rgb(number))
+		const rgb = this.number2rgb(number)
+		//console.log("number2rgb", number, rgb)
+		return this.rgb2hex(rgb)
 	}
 
 	colorNameToValue(color) {
@@ -619,11 +629,17 @@ C3.Plugins.Overboy_Utils.Instance = class Overboy_UtilsInstance extends C3.SDKIn
 	colorNameToHex(color) {
 		if (this.colorTemplates.hasOwnProperty(color.toLowerCase())) {
 			//console.log("there is a template for this color", color.toLowerCase())
+			//color = this.colorTemplates[color.toLowerCase()]
+			//console.log("colorTemplates =", color)
+			//return this.colorToHex(color)
 			return this.colorTemplates[color.toLowerCase()]
 		}
 		if (this.colorDefaults.hasOwnProperty(color.toLowerCase())) {
+			//color = this.colorDefaults[color.toLowerCase()]
+			//return this.colorToHex(color)
 			return this.colorDefaults[color.toLowerCase()]
 		}
+		console.log("no template for this color", color.toLowerCase())
 		return undefined
 	}
 

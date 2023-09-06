@@ -11,7 +11,7 @@ const SDK = self.SDK
 const PLUGIN_ID = "Overboy_Utils"
 ////////////////////////////////////////////
 
-const PLUGIN_VERSION = "2.1"
+const PLUGIN_VERSION = "2.3"
 const PLUGIN_CATEGORY = "general"
 
 const PLUGIN_CLASS = (SDK.Plugins.Overboy_Utils = class MyCustomPlugin extends SDK.IPluginBase {

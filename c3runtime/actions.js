@@ -44,8 +44,8 @@ self.C3.Plugins.Overboy_Utils.Acts = {
 
 		const rbgColor = this.colorToRGBValue(color)
 
-		console.log("Set Color To (rgbNumber)", rbgColor)
-		console.log("Set Color To (hex)", this.colorToHex(color))
+		//console.log("Set Color To (rgbNumber)", rbgColor)
+		//console.log("Set Color To (hex)", this.colorToHex(color))
 
 		if (rbgColor === undefined) return
 
@@ -63,7 +63,9 @@ self.C3.Plugins.Overboy_Utils.Acts = {
 
 	ColorTemplate_Set(name, color) {
 		name = name.toLowerCase()
-		this.colorTemplates[name] = color
+		//this.colorTemplates[name] = color
+		this.colorTemplates[name] = this.colorToHex(color)
+		//console.log("ColorTemplate_Set", name, color, this.colorTemplates[name])
 	},
 
 	ColorTemplate_Remove(name) {
