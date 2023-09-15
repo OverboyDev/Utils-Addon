@@ -16,7 +16,7 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 	},
 
 	snap(x, step) {
-		return Math.round(value / step) * step
+		return Math.round(x / step) * step
 	},
 
 	remap(x, inMin, inMax, outMin, outMax) {
@@ -37,6 +37,10 @@ self.C3.Plugins.Overboy_Utils.Exps = {
 
 	dt1() {
 		return this._runtime._dt1
+	},
+
+	o(key) {
+		return Object.values(arguments).join(".")
 	},
 
 	//angle
